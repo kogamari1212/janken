@@ -188,5 +188,9 @@ body.lose {
   font-size: 16px;
   border-radius: 3px;
 }
+.select_section .btn:hover {
+  background: #111;
+  color: #fff;
+}
 
 /*# sourceMappingURL=style.css.map */
