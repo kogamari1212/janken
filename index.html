@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# website: https://ogp.me/ns/website#">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  if (!/iPhone|iPod|Android/.test(navigator.userAgent)) {
+    document.querySelector('meta[name=viewport]').content = 'width=1400';
+  }
+</script>
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>じゃんけん</title>
+<meta name="description" content="">
+
+<meta property="og:title" content="">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="#" />
+<meta property="og:site_name" content="" />
+<meta property="og:description" content="" />
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="#">
+<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="img/web_icon.png">
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/sanitize.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script src="js/cmn/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  let randomNumber1;
+
+  $('.select_section .btn').on('click', function() {
+    // .my_result に fixed クラスを追加
+    $('.my_result div').addClass('fixed');
+    $('.pc_result div').addClass('fixed');
+    randomNumber1 = Math.floor(Math.random() * 3);
+
+    if (randomNumber1 === 0) {
+      $('.pc_result div:nth-of-type(2), .pc_result div:nth-of-type(3)').hide();
+    } else if (randomNumber1 === 1) {
+      $('.pc_result div:nth-of-type(1), .pc_result div:nth-of-type(3)').hide();
+    } else {
+      $('.pc_result div:nth-of-type(1), .pc_result div:nth-of-type(2)').hide();
+    };
+  });
+
+  $('.select_section .btn01').on('click', function() {
+    // .my_result のグー以外に　none クラスを追加
+    $('.my_result div:nth-of-type(2), .my_result div:nth-of-type(3)').hide();
+
+    if (randomNumber1 === 0) {
+      $('body').addClass('win');
+    } else if (randomNumber1 === 1) {
+      $('body').addClass('lose');
+    } else {
+      $('body').addClass('hikiwake');
+    }
+  });
+  $('.select_section .btn02').on('click', function() {
+    // .my_result のチョキ以外に　none クラスを追加
+    $('.my_result div:nth-of-type(1), .my_result div:nth-of-type(3)').hide();
+
+    if (randomNumber1 === 0) {
+      $('body').addClass('hikiwake');
+    } else if (randomNumber1 === 1) {
+      $('body').addClass('win');
+    } else {
+      $('body').addClass('lose');
+    }
+  });
+  $('.select_section .btn03').on('click', function() {
+    // .my_result のパー以外に　none クラスを追加
+    $('.my_result div:nth-of-type(1), .my_result div:nth-of-type(2)').hide();
+
+    if (randomNumber1 === 0) {
+      $('body').addClass('lose');
+    } else if (randomNumber1 === 1) {
+      $('body').addClass('hikiwake');
+    } else {
+      $('body').addClass('win');
+    }
+  });
+ 
+});
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <section class="title_section">
+      <h1>じゃんけん</h1>
+    </section>
+    <!-- //title_section -->
+
+    <section class="result_section">
+      <section class="my_result">
+        <div><img src="img/woman_win_goo.png" alt=""></div>
+        <div><img src="img/woman_win_choki.png" alt=""></div>
+        <div><img src="img/woman_win_par.png" alt=""></div>
+      </section>
+      <!-- //my_result -->
+      <section class="pc_result">
+        <div><img src="img/men_win_choki.png" alt=""></div>
+        <div><img src="img/men_win_par.png" alt=""></div>
+        <div><img src="img/men_win_goo.png" alt=""></div>
+      </section>
+      <!-- //pc_result -->
+    </section>
+    <!-- //result_section -->
+
+    <section class="name">
+      <div>あなた</div>
+      <div>相手</div>
+    </section>
+
+    <section class="select_section">
+      <button class="btn01 btn"><span>グー</span></button>
+      <button class="btn02 btn"><span>チョキ</span></button>
+      <button class="btn03 btn"><span>パー</span></button>
+    </section>
+    <!-- //select_section -->
+
+  </div>
+  <!-- //container -->
+</body>
+</html>
