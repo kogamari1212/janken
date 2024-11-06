@@ -52,10 +52,13 @@ $(document).ready(function() {
 
     if (randomNumber1 === 0) {
       $('body').addClass('win');
+      $('.marquee-container_win').addClass('current');
     } else if (randomNumber1 === 1) {
       $('body').addClass('lose');
+      $('.marquee-container_lose').addClass('current');
     } else {
       $('body').addClass('hikiwake');
+      $('.marquee-container_hikiwake').addClass('current');
     }
   });
   $('.select_section .btn02').on('click', function() {
@@ -64,10 +67,13 @@ $(document).ready(function() {
 
     if (randomNumber1 === 0) {
       $('body').addClass('hikiwake');
+      $('.marquee-container_hikiwake').addClass('current');
     } else if (randomNumber1 === 1) {
       $('body').addClass('win');
+      $('.marquee-container_win').addClass('current');
     } else {
       $('body').addClass('lose');
+      $('.marquee-container_lose').addClass('current');
     }
   });
   $('.select_section .btn03').on('click', function() {
@@ -76,11 +82,18 @@ $(document).ready(function() {
 
     if (randomNumber1 === 0) {
       $('body').addClass('lose');
+      $('.marquee-container_lose').addClass('current');
     } else if (randomNumber1 === 1) {
       $('body').addClass('hikiwake');
+      $('.marquee-container_hikiwake').addClass('current');
     } else {
       $('body').addClass('win');
+      $('.marquee-container_win').addClass('current');
     }
+  });
+  $(".btn_reset").on("click", function() {
+    // ページをリロード
+    location.reload(); 
   });
  
 });
@@ -121,6 +134,15 @@ $(document).ready(function() {
       <button class="btn03 btn"><span>パー</span></button>
     </section>
     <!-- //select_section -->
+
+    <section class="select_reset">
+      <button class="btn_reset btn"><span>リセット</span></button>
+    </section>
+    <!-- //select_reset -->
+
+    <div class="marquee-container_win"><span>Winner!!!!!</span></div>
+    <div class="marquee-container_lose"><span>Loser...</span></div>
+    <div class="marquee-container_hikiwake"><span>Draw!!</span></div>
 
   </div>
   <!-- //container -->
