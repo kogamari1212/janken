@@ -32,11 +32,14 @@ $(document).ready(function() {
   let randomNumber1;
 
   $('.select_section .btn').on('click', function() {
-    // .my_result に fixed クラスを追加
+    // ボタンクリック後 .my_result/.pc_result に fixed クラスを追加
     $('.my_result div').addClass('fixed');
     $('.pc_result div').addClass('fixed');
+
+    // .pc_resultの結果はランダムに設定
     randomNumber1 = Math.floor(Math.random() * 3);
 
+    // .pc_result　表示する画像を１枚に固定
     if (randomNumber1 === 0) {
       $('.pc_result div:nth-of-type(2), .pc_result div:nth-of-type(3)').hide();
     } else if (randomNumber1 === 1) {
@@ -47,9 +50,10 @@ $(document).ready(function() {
   });
 
   $('.select_section .btn01').on('click', function() {
-    // .my_result のグー以外に　none クラスを追加
+    // .my_result のグー以外を非表示
     $('.my_result div:nth-of-type(2), .my_result div:nth-of-type(3)').hide();
 
+    // 結果によりbodyへclass付与、文字も流す
     if (randomNumber1 === 0) {
       $('body').addClass('win');
       $('.marquee-container_win').addClass('current');
@@ -62,9 +66,10 @@ $(document).ready(function() {
     }
   });
   $('.select_section .btn02').on('click', function() {
-    // .my_result のチョキ以外に　none クラスを追加
+    // .my_result のチョキ以外を非表示
     $('.my_result div:nth-of-type(1), .my_result div:nth-of-type(3)').hide();
 
+    // 結果によりbodyへclass付与、文字も流す
     if (randomNumber1 === 0) {
       $('body').addClass('hikiwake');
       $('.marquee-container_hikiwake').addClass('current');
@@ -77,9 +82,10 @@ $(document).ready(function() {
     }
   });
   $('.select_section .btn03').on('click', function() {
-    // .my_result のパー以外に　none クラスを追加
+    // .my_result のパー以外を非表示
     $('.my_result div:nth-of-type(1), .my_result div:nth-of-type(2)').hide();
 
+    // 結果によりbodyへclass付与、文字も流す
     if (randomNumber1 === 0) {
       $('body').addClass('lose');
       $('.marquee-container_lose').addClass('current');
@@ -91,8 +97,9 @@ $(document).ready(function() {
       $('.marquee-container_win').addClass('current');
     }
   });
+
   $(".btn_reset").on("click", function() {
-    // ページをリロード
+    // リセットボタンをクリック後 ページをリロード
     location.reload(); 
   });
  
